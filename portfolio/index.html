@@ -301,29 +301,76 @@
 
         <div class="projects-stack">
           <!-- Original GENO proportions = master layout for every project card -->
-          <article class="project-card project-card--featured glass-card reveal" data-reveal>
-            <div class="project-card__media project-card__media--geno" role="img" aria-label="GENO project visual placeholder">
-              <span class="project-card__media-frame" aria-hidden="true"></span>
+          <article class="project-card project-card--featured project-card--geno glass-card reveal" data-reveal>
+            <div class="project-card__media project-card__media--geno" aria-label="GENO product showcase">
+              <div class="geno-showcase" data-geno-showcase>
+                <div class="geno-showcase__glow" aria-hidden="true"></div>
+                <div class="macbook" data-geno-macbook>
+                  <div class="macbook__lid">
+                    <div class="macbook__camera" aria-hidden="true"></div>
+                    <div class="macbook__screen">
+                      <div class="geno-carousel" data-geno-carousel aria-roledescription="carousel" aria-label="GENO product screenshots">
+                        <div class="geno-carousel__track" data-geno-track>
+                          <figure class="geno-carousel__slide is-active" data-geno-slide>
+                            <img src="assets/images/geno/geno-home.png" alt="GENO home page" width="1400" height="900" loading="eager" decoding="async" />
+                            <figcaption class="geno-carousel__label">Home</figcaption>
+                          </figure>
+                          <figure class="geno-carousel__slide" data-geno-slide>
+                            <img src="assets/images/geno/geno-load.png" alt="GENO dataset upload page" width="1400" height="900" loading="lazy" decoding="async" />
+                            <figcaption class="geno-carousel__label">Upload</figcaption>
+                          </figure>
+                          <figure class="geno-carousel__slide" data-geno-slide>
+                            <img src="assets/images/geno/geno-results.png" alt="GENO prediction results report" width="1400" height="900" loading="lazy" decoding="async" />
+                            <figcaption class="geno-carousel__label">Results</figcaption>
+                          </figure>
+                          <figure class="geno-carousel__slide" data-geno-slide>
+                            <img src="assets/images/geno/geno-dashboard.png" alt="GENO laboratory dashboard" width="1400" height="900" loading="lazy" decoding="async" />
+                            <figcaption class="geno-carousel__label">Dashboard</figcaption>
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="macbook__base" aria-hidden="true">
+                    <div class="macbook__hinge"></div>
+                    <div class="macbook__deck"></div>
+                  </div>
+                </div>
+                <div class="geno-carousel__controls">
+                  <button type="button" class="geno-carousel__arrow geno-carousel__arrow--prev" data-geno-prev aria-label="Previous screenshot">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                  <div class="geno-carousel__dots" data-geno-dots role="tablist" aria-label="GENO screenshots">
+                    <button type="button" class="geno-carousel__dot is-active" data-geno-dot="0" role="tab" aria-selected="true" aria-label="Home page"></button>
+                    <button type="button" class="geno-carousel__dot" data-geno-dot="1" role="tab" aria-selected="false" aria-label="Dataset upload page"></button>
+                    <button type="button" class="geno-carousel__dot" data-geno-dot="2" role="tab" aria-selected="false" aria-label="Prediction results page"></button>
+                    <button type="button" class="geno-carousel__dot" data-geno-dot="3" role="tab" aria-selected="false" aria-label="Dashboard page"></button>
+                  </div>
+                  <button type="button" class="geno-carousel__arrow geno-carousel__arrow--next" data-geno-next aria-label="Next screenshot">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                </div>
+              </div>
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
-                <span class="chip">Featured</span>
+                <span class="chip chip--saas">Production SaaS Platform</span>
                 <span class="chip chip--muted">AI · Bioinformatics · Predictive Modeling</span>
               </div>
               <h3 class="project-card__title">GENO</h3>
               <p class="project-card__desc">
-                AI-assisted addiction risk analysis using DNA-related datasets, predictive modeling, and interpretable machine learning.
+                Production-ready SaaS platform for AI-assisted addiction risk analysis — upload genetic datasets, run predictive models, and deliver interpretable insights for laboratory decision-making.
               </p>
               <ul class="tech-list" aria-label="Technologies">
                 <li>Python</li>
+                <li>React</li>
                 <li>scikit-learn</li>
                 <li>pandas</li>
                 <li>Machine Learning</li>
-                <li>Data Analysis</li>
               </ul>
               <div class="project-card__actions">
-                <a class="btn btn--secondary btn--sm" href="https://github.com/joud-alharbi" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="btn btn--primary btn--sm" href="#">Live Demo</a>
+                <a class="btn btn--secondary btn--sm" href="https://github.com/JoudAlharbi/GENO-deployment.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="btn btn--primary btn--sm" href="https://geno-deployment.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
               </div>
             </div>
           </article>

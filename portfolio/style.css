@@ -1729,13 +1729,352 @@ ol {
     0 0 56px rgba(0, 0, 0, 0.28);
 }
 
-/* Placeholder palettes — monochrome, cinematic */
+/* GENO — premium MacBook screenshot showcase */
+.project-card--geno {
+  --geno-blue-glow: rgba(72, 132, 255, 0.38);
+  --geno-blue-soft: rgba(88, 148, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.1);
+  overflow: visible;
+}
+
+.project-card--geno.project-card--featured {
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  grid-template-rows: minmax(460px, auto);
+}
+
+.project-card--geno:hover {
+  border-color: rgba(120, 168, 255, 0.24);
+  box-shadow:
+    var(--shadow-soft),
+    0 0 96px rgba(72, 132, 255, 0.1);
+}
+
+.project-card--geno .project-card__body {
+  gap: clamp(0.9rem, 1.8vw, 1.15rem);
+  justify-content: center;
+}
+
+.project-card--geno .project-card__title {
+  background: linear-gradient(135deg, var(--text) 0%, rgba(186, 214, 255, 0.94) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.chip--saas {
+  background: linear-gradient(135deg, rgba(88, 148, 255, 0.24), rgba(88, 148, 255, 0.08));
+  border-color: rgba(120, 168, 255, 0.38);
+  color: rgba(214, 230, 255, 0.98);
+  letter-spacing: 0.05em;
+}
+
 .project-card__media--geno {
-  background-color: #08080e;
-  background-image:
-    radial-gradient(ellipse 85% 72% at 18% 28%, rgba(215, 218, 232, 0.38), transparent 56%),
-    radial-gradient(circle at 82% 72%, rgba(115, 122, 148, 0.38), transparent 46%),
-    linear-gradient(158deg, #101018 0%, #06060a 100%);
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 40%, rgba(72, 132, 255, 0.1), transparent 62%),
+    linear-gradient(175deg, #090b14 0%, #050507 100%);
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 2.5vw, 1.75rem);
+  overflow: visible;
+}
+
+.project-card__media--geno::before,
+.project-card__media--geno::after {
+  display: none;
+}
+
+.geno-showcase {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.geno-showcase__glow {
+  position: absolute;
+  inset: 2% 0 18%;
+  background:
+    radial-gradient(ellipse 62% 48% at 50% 46%, var(--geno-blue-glow), transparent 72%);
+  filter: blur(42px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity var(--dur-mid) var(--ease-soft);
+}
+
+.project-card--geno:hover .geno-showcase__glow {
+  opacity: 0.82;
+}
+
+/* MacBook frame */
+.macbook {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 620px);
+  margin-inline: auto;
+  perspective: 1400px;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.project-card--geno:hover .macbook {
+  transform: translateY(-3px);
+}
+
+.macbook__lid {
+  position: relative;
+  padding: 10px 10px 8px;
+  border-radius: 14px 14px 0 0;
+  background: linear-gradient(180deg, #3a3d48 0%, #22242c 38%, #1a1c22 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 -2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.macbook__camera {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0a0b0f;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  z-index: 3;
+}
+
+.macbook__screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.85),
+    inset 0 0 24px rgba(0, 0, 0, 0.45);
+}
+
+.macbook__base {
+  position: relative;
+  height: 14px;
+}
+
+.macbook__hinge {
+  height: 4px;
+  margin: 0 12%;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(180deg, #14161c, #0a0b0f);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.macbook__deck {
+  height: 10px;
+  margin: 0 -2%;
+  border-radius: 0 0 18px 18px;
+  background: linear-gradient(180deg, #2a2d36 0%, #1c1e26 55%, #12141a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: none;
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Carousel inside MacBook screen */
+.geno-carousel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.geno-carousel__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.geno-carousel__slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+  pointer-events: none;
+}
+
+.geno-carousel__slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.geno-carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.geno-carousel__label {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 247, 0.88);
+  background: rgba(8, 10, 16, 0.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity var(--dur-mid) var(--ease-soft),
+    transform var(--dur-mid) var(--ease-out);
+}
+
+.geno-carousel__slide.is-active .geno-carousel__label {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+/* External carousel controls */
+.geno-carousel__controls {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: min(100%, 620px);
+  margin-inline: auto;
+}
+
+.geno-carousel__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(14, 16, 24, 0.82);
+  backdrop-filter: blur(12px);
+  color: var(--text);
+  transition:
+    background var(--dur-fast) var(--ease-soft),
+    border-color var(--dur-fast) var(--ease-soft),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.geno-carousel__arrow:hover {
+  background: rgba(88, 148, 255, 0.2);
+  border-color: rgba(120, 168, 255, 0.42);
+  transform: scale(1.05);
+}
+
+.geno-carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: rgba(10, 12, 18, 0.78);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.geno-carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.24);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-soft),
+    box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+.geno-carousel__dot.is-active {
+  background: rgba(120, 168, 255, 0.95);
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(120, 168, 255, 0.45);
+}
+
+@media (max-width: 960px) {
+  .project-card--geno.project-card--featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .project-card__media--geno {
+    min-height: clamp(300px, 52vw, 380px);
+    padding: 1rem;
+  }
+
+  .macbook {
+    width: min(100%, 520px);
+  }
+
+  .geno-carousel__controls {
+    width: min(100%, 520px);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-card__media--geno {
+    padding: 0.75rem 0.5rem 0.85rem;
+  }
+
+  .macbook {
+    width: 100%;
+  }
+
+  .macbook__lid {
+    padding: 8px 8px 6px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .geno-carousel__controls {
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .geno-carousel__arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .geno-carousel__dot {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card--geno:hover .macbook {
+    transform: none;
+  }
+
+  .geno-carousel__slide {
+    transition-duration: 0.01ms;
+  }
 }
 
 .project-card__media--sdaia {

@@ -364,5 +364,86 @@
     if (section) sectionObserver.observe(section);
   })();
 
+  /* ---------------------------------------------------------------------------
+     GENO showcase — MacBook screenshot carousel
+     --------------------------------------------------------------------------- */
+  (function initGenoShowcase() {
+    const showcase = document.querySelector("[data-geno-showcase]");
+    if (!showcase) return;
+
+    const slides = showcase.querySelectorAll("[data-geno-slide]");
+    const dots = showcase.querySelectorAll("[data-geno-dot]");
+    const prevBtn = showcase.querySelector("[data-geno-prev]");
+    const nextBtn = showcase.querySelector("[data-geno-next]");
+
+    if (!slides.length) return;
+
+    let activeIndex = 0;
+    let slideTimer = null;
+    const SLIDE_INTERVAL = 5000;
+
+    function goToSlide(index) {
+      const total = slides.length;
+      activeIndex = ((index % total) + total) % total;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("is-active", i === activeIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        const isActive = i === activeIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+    }
+
+    function nextSlide() {
+      goToSlide(activeIndex + 1);
+      restartAutoplay();
+    }
+
+    function prevSlide() {
+      goToSlide(activeIndex - 1);
+      restartAutoplay();
+    }
+
+    function startAutoplay() {
+      if (prefersReducedMotion) return;
+      clearInterval(slideTimer);
+      slideTimer = setInterval(nextSlide, SLIDE_INTERVAL);
+    }
+
+    function stopAutoplay() {
+      clearInterval(slideTimer);
+      slideTimer = null;
+    }
+
+    function restartAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+    if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const index = Number(dot.getAttribute("data-geno-dot"));
+        if (!Number.isNaN(index)) {
+          goToSlide(index);
+          restartAutoplay();
+        }
+      });
+    });
+
+    showcase.addEventListener("mouseenter", stopAutoplay);
+    showcase.addEventListener("mouseleave", startAutoplay);
+    showcase.addEventListener("focusin", stopAutoplay);
+    showcase.addEventListener("focusout", startAutoplay);
+
+    goToSlide(0);
+    startAutoplay();
+  })();
+
 
 })();
