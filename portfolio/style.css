@@ -1735,6 +1735,7 @@ ol {
   --geno-charcoal: #0e0e12;
   --geno-silver: rgba(232, 234, 240, 0.92);
   --geno-frost: rgba(255, 255, 255, 0.06);
+  --geno-block-gap: clamp(1.15rem, 2.2vw, 1.35rem);
   border-color: rgba(255, 255, 255, 0.09);
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -1762,15 +1763,15 @@ ol {
 
 .project-card--geno .project-card__body {
   gap: 0;
-  justify-content: center;
-  padding: clamp(1.35rem, 2.8vw, 1.75rem);
+  justify-content: flex-start;
+  padding: clamp(1.45rem, 3vw, 1.85rem);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   background: linear-gradient(165deg, rgba(16, 16, 20, 0.55) 0%, rgba(10, 10, 14, 0.35) 100%);
 }
 
 .project-card--geno .project-card__tags {
   gap: 0.35rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: var(--geno-block-gap);
 }
 
 .project-card--geno .chip {
@@ -1787,28 +1788,119 @@ ol {
 }
 
 .project-card--geno .project-card__title {
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.75rem;
   color: var(--text);
   font-size: clamp(1.25rem, 2.1vw, 1.5rem);
   letter-spacing: -0.035em;
 }
 
 .project-card--geno .project-card__desc {
-  margin: 0 0 1rem;
+  margin: 0 0 var(--geno-block-gap);
   font-size: 0.9rem;
   line-height: 1.62;
   color: rgba(245, 245, 247, 0.52);
 }
 
-.project-card--geno .tech-list {
-  gap: 0.35rem;
+/* GENO — key features */
+.geno-features {
+  margin: 0 0 var(--geno-block-gap);
+  opacity: 0;
 }
 
-.project-card--geno .tech-list li {
+.geno-features__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 247, 0.38);
+}
+
+.geno-features__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.42rem 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.geno-features__item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: rgba(245, 245, 247, 0.68);
+  opacity: 0;
+}
+
+.geno-features__icon {
+  flex-shrink: 0;
+  color: rgba(186, 204, 232, 0.72);
+  filter: drop-shadow(0 0 6px rgba(120, 148, 200, 0.2));
+}
+
+@keyframes geno-features-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card--geno.reveal.is-visible .geno-features {
+  animation: geno-features-fade 0.6s var(--ease-out) forwards;
+  animation-delay: 0.18s;
+}
+
+.project-card--geno.reveal.is-visible .geno-features__item {
+  animation: geno-features-fade 0.5s var(--ease-out) forwards;
+}
+
+.project-card--geno.reveal.is-visible .geno-features__item:nth-child(1) { animation-delay: 0.24s; }
+.project-card--geno.reveal.is-visible .geno-features__item:nth-child(2) { animation-delay: 0.3s; }
+.project-card--geno.reveal.is-visible .geno-features__item:nth-child(3) { animation-delay: 0.36s; }
+.project-card--geno.reveal.is-visible .geno-features__item:nth-child(4) { animation-delay: 0.42s; }
+.project-card--geno.reveal.is-visible .geno-features__item:nth-child(5) { animation-delay: 0.48s; }
+
+/* GENO — technologies block */
+.geno-tech {
+  width: 100%;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.project-card--geno .geno-tech .tech-list {
+  gap: 0.4rem;
+  margin: 0;
+  width: 100%;
+}
+
+.project-card--geno .geno-tech .tech-list li {
   padding: 0.28rem 0.48rem;
   font-size: 0.72rem;
   border-color: rgba(255, 255, 255, 0.07);
   background: rgba(255, 255, 255, 0.025);
+}
+
+/* GENO — dedicated actions / CTA block */
+.geno-actions {
+  width: 100%;
+  margin-top: 22px;
+  padding-top: 0;
+}
+
+.geno-actions__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
 }
 
 .chip--saas {
@@ -1855,20 +1947,19 @@ ol {
 }
 
 /* GENO action buttons — monochrome luxury */
-.project-card__actions--geno {
-  margin-top: auto;
-  padding-top: 1.15rem;
-  gap: 0.55rem;
-}
-
 .btn--geno {
-  min-height: 2.25rem;
-  padding: 0.55rem 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.375rem;
+  padding: 0.6rem 1.15rem;
   border-radius: var(--radius-sm);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  line-height: 1;
   border: 1px solid transparent;
+  box-sizing: border-box;
   transition:
     transform var(--dur-fast) var(--ease-out),
     box-shadow var(--dur-mid) var(--ease-soft),
@@ -2242,6 +2333,14 @@ ol {
   }
 }
 
+@media (max-width: 600px) {
+  .geno-features__list {
+    grid-template-columns: 1fr;
+    gap: 0.38rem;
+  }
+
+}
+
 @media (prefers-reduced-motion: reduce) {
   .project-card--geno:hover {
     transform: none;
@@ -2253,6 +2352,13 @@ ol {
 
   .geno-carousel__slide {
     transition-duration: 0.01ms;
+  }
+
+  .geno-features,
+  .geno-features__item {
+    opacity: 1;
+    animation: none;
+    transform: none;
   }
 }
 
