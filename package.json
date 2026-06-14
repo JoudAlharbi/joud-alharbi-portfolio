@@ -5,7 +5,8 @@
   "description": "Joud Alharbi — AI & Data Analyst portfolio (static site)",
   "scripts": {
     "dev": "live-server portfolio --port=3000 --open=/index.html",
-    "start": "serve portfolio -l 3000"
+    "start": "serve portfolio -l 3000",
+    "build": "echo \"Static site — no build step required\""
   },
   "devDependencies": {
     "live-server": "^1.2.2",
