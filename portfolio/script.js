@@ -48,6 +48,41 @@
   updateHeader();
 
   /* ---------------------------------------------------------------------------
+     Hero scroll cue — hide after user scrolls
+     --------------------------------------------------------------------------- */
+  const heroScrollCue = document.getElementById("hero-scroll-cue");
+  let scrollCueTicking = false;
+  let scrollCueHidden = false;
+
+  function updateScrollCue() {
+    if (!heroScrollCue || scrollCueHidden) {
+      scrollCueTicking = false;
+      return;
+    }
+
+    if (window.scrollY > 32) {
+      scrollCueHidden = true;
+      heroScrollCue.classList.add("is-hidden");
+    }
+
+    scrollCueTicking = false;
+  }
+
+  if (heroScrollCue) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!scrollCueTicking) {
+          window.requestAnimationFrame(updateScrollCue);
+          scrollCueTicking = true;
+        }
+      },
+      { passive: true }
+    );
+    updateScrollCue();
+  }
+
+  /* ---------------------------------------------------------------------------
      Smooth anchor navigation with fixed header offset
      --------------------------------------------------------------------------- */
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

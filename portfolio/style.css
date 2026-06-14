@@ -676,76 +676,70 @@ ol {
    ----------------------------------------------------------------------------- */
 .hero {
   position: relative;
-  min-height: min(100vh, 920px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: calc(var(--header-h) + var(--space-lg));
+  padding-block: clamp(2rem, 4.5vh, 3rem);
+  padding-inline: 0;
+  overflow-x: clip;
+  scroll-margin-top: var(--header-h);
 }
 
-/* ─── Hero Grid: clean 2-col split ───────────────────────────────────────── */
+.hero__container {
+  width: min(100% - 2.5rem, var(--container-wide));
+  max-width: var(--container-wide);
+  margin-inline: auto;
+}
+
+/* ─── Hero Grid: two-column layout ─────────────────────────────────────────── */
 
 .hero__grid {
   display: grid;
-  grid-template-columns: 1fr minmax(320px, 0.8fr);
-  gap: clamp(3rem, 7vw, 6rem);
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 280px);
+  gap: clamp(2rem, 3.5vw, 3.5rem);
   align-items: center;
-  min-height: calc(100vh - var(--header-h));
 }
 
-/* LEFT column: vertical stack, everything left-aligned */
+/* LEFT column: recruiter-focused hierarchy */
 .hero__content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-}
-
-/* eyebrow already has its own styles — just spacing */
-.hero__content > .eyebrow {
-  margin-bottom: var(--space-md);
+  min-width: 0;
+  max-width: 100%;
+  padding-left: clamp(1.75rem, 4.5vw, 3.5rem);
 }
 
 .hero__title {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.4rem;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.02;
+  max-width: 100%;
 }
 
 .hero__role {
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 var(--space-sm);
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   color: var(--text-muted);
 }
 
-.hero__label {
-  font-size: 0.74rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  margin: 0 0 var(--space-md);
-}
-
 .hero__lead {
-  margin: 0 0 var(--space-xl);
-  max-width: 46ch;
-  line-height: 1.72;
-  font-size: 0.97rem;
+  margin: 0 0 var(--space-md);
+  max-width: 42ch;
+  line-height: 1.65;
+  font-size: 0.95rem;
   color: var(--text-muted);
 }
 
 .hero__cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  /* no extra margin-top — lead handles the gap above */
+  gap: 0.55rem;
+  margin-bottom: var(--space-md);
 }
 
 /* ─── Hero pill CTA buttons ──────────────────────────────────────────────── */
@@ -832,40 +826,225 @@ ol {
   border-color: var(--border);
 }
 
-/* Social row sits directly under CTA with a small gap */
-.hero__social {
+/* Quick stats — credibility at a glance */
+.hero__stats {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
 }
 
-/* ─── Mobile: single-column, logo on top ─────────────────────────────────── */
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.hero__stat-value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.hero__stat-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+@media (max-width: 1100px) {
+  .hero__grid {
+    gap: clamp(1.75rem, 3vw, 2.5rem);
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
+  }
+
+  .hero__content {
+    padding-left: clamp(1.25rem, 3.5vw, 2.5rem);
+  }
+}
+
+/* ─── Mobile: content first, identity card supports ──────────────────────── */
 @media (max-width: 900px) {
+  .hero {
+    padding-block: clamp(1.5rem, 3.5vh, 2.5rem);
+  }
+
   .hero__grid {
     grid-template-columns: 1fr;
-    min-height: unset;
-    padding-top: var(--space-xl);
-    gap: var(--space-xl);
+    gap: clamp(2rem, 5vw, 2.5rem);
   }
 
   .hero__visual {
-    order: -1;          /* logo appears above text on mobile */
+    justify-self: center;
+    max-width: 260px;
   }
 
   .hero__content {
     align-items: flex-start;
+    padding-left: 0;
   }
 
   .hero__lead {
     max-width: 100%;
   }
+
+  .hero__stats {
+    gap: clamp(1rem, 3vw, 1.5rem);
+  }
 }
 
 @media (max-width: 520px) {
-  .hero__social {
-    flex-wrap: wrap;
-    gap: 0.45rem;
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm) var(--space-md);
+  }
+
+  .hero__cta {
+    width: 100%;
+  }
+
+  .hero__cta .btn {
+    flex: 1 1 calc(50% - 0.3rem);
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .hero__cta .btn--hero-ghost {
+    flex-basis: 100%;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Hero → About scroll cue
+   ----------------------------------------------------------------------------- */
+.hero-scroll-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding: clamp(0.5rem, 1.5vh, 0.85rem) 1rem clamp(1.25rem, 3vh, 2rem);
+  text-decoration: none;
+  color: rgba(245, 245, 247, 0.42);
+  opacity: 0.72;
+  transform: translateY(0);
+  animation: scroll-cue-breathe 4s var(--ease-soft) infinite;
+  transition:
+    opacity var(--dur-mid) var(--ease-soft),
+    transform var(--dur-mid) var(--ease-soft),
+    color var(--dur-fast) var(--ease-soft);
+}
+
+.hero-scroll-cue:hover {
+  color: rgba(245, 245, 247, 0.68);
+  opacity: 0.95;
+}
+
+.hero-scroll-cue:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: var(--radius-pill);
+}
+
+.hero-scroll-cue.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  animation: none;
+}
+
+.hero-scroll-cue__chevrons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-top: -0.35rem;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.12))
+          drop-shadow(0 0 14px rgba(200, 205, 230, 0.08));
+  animation: scroll-cue-float 3.2s var(--ease-soft) infinite;
+}
+
+.hero-scroll-cue__chevron {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.hero-scroll-cue__chevron--one {
+  opacity: 0.55;
+  animation: scroll-cue-chevron-a 3.2s var(--ease-soft) infinite;
+}
+
+.hero-scroll-cue__chevron--two {
+  margin-top: -0.45rem;
+  opacity: 0.3;
+  animation: scroll-cue-chevron-b 3.2s var(--ease-soft) infinite;
+}
+
+@keyframes scroll-cue-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+
+@keyframes scroll-cue-breathe {
+  0%, 100% { opacity: 0.62; }
+  50%      { opacity: 0.82; }
+}
+
+@keyframes scroll-cue-chevron-a {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.85; }
+}
+
+@keyframes scroll-cue-chevron-b {
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 0.55; }
+}
+
+@media (max-width: 720px) {
+  .hero-scroll-cue {
+    padding-bottom: clamp(1rem, 2.5vh, 1.5rem);
+  }
+
+  .hero-scroll-cue__chevron {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-cue,
+  .hero-scroll-cue__chevrons,
+  .hero-scroll-cue__chevron--one,
+  .hero-scroll-cue__chevron--two {
+    animation: none;
+  }
+
+  .hero-scroll-cue {
+    opacity: 0.7;
+  }
+
+  .hero-scroll-cue__chevron--one {
+    opacity: 0.6;
+  }
+
+  .hero-scroll-cue__chevron--two {
+    opacity: 0.35;
   }
 }
 
@@ -913,15 +1092,75 @@ ol {
   transform: translateY(-1px);
 }
 
-/* ─── Hero Logo Stage ─────────────────────────────────────────────────────── */
+/* ─── Hero Identity Card — supporting visual ─────────────────────────────── */
 
 .hero__visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 420px;
+  justify-self: center;
+  min-width: 0;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
 }
+
+.hero__identity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  gap: 0.35rem;
+}
+
+.hero__identity-card .hero__logo-stage {
+  max-width: 180px;
+  margin-bottom: 0.35rem;
+}
+
+.hero__identity-card .logo-frame {
+  width: 78%;
+  padding: clamp(1.1rem, 5%, 1.5rem);
+}
+
+.hero__identity-name {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.hero__identity-role {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.hero__identity-location {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.hero__identity-card .hero__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+/* ─── Hero Logo Stage ─────────────────────────────────────────────────────── */
 
 .hero__logo-stage {
   position: relative;
@@ -929,8 +1168,9 @@ ol {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 480px;
+  max-width: 100%;
   aspect-ratio: 1 / 1;
+  overflow: hidden;
   animation: logo-float 8s var(--ease-soft) infinite;
 }
 
@@ -1027,19 +1267,23 @@ ol {
 
 /* Responsive */
 @media (max-width: 960px) {
-  .hero__visual {
-    min-height: unset;
-    padding: var(--space-xl) 0 var(--space-md);
+  .hero__identity-card {
+    max-width: 240px;
+    margin: 0 auto;
   }
 
-  .hero__logo-stage {
-    max-width: 320px;
+  .hero__identity-card .hero__logo-stage {
+    max-width: 170px;
   }
 }
 
 @media (max-width: 520px) {
-  .hero__logo-stage {
-    max-width: 260px;
+  .hero__identity-card {
+    max-width: 220px;
+  }
+
+  .hero__identity-card .hero__logo-stage {
+    max-width: 150px;
   }
 }
 
@@ -1058,33 +1302,6 @@ ol {
   transform: translateY(0) scale(1);
 }
 
-.hero__scroll-hint {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-
-.hero__scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35), transparent);
-}
-
-@media (max-width: 720px) {
-  .hero__scroll-hint {
-    display: none;
-  }
-}
-
 /* -----------------------------------------------------------------------------
    About
    ----------------------------------------------------------------------------- */
@@ -1093,7 +1310,7 @@ ol {
    ============================================================================= */
 
 .section--about {
-  padding-block: clamp(4rem, 8vw, 6.5rem);
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
 }
 
 /* ── Intro block — centred ─────────────────────────────────────────────────── */
