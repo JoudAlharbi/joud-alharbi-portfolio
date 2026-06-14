@@ -2362,20 +2362,511 @@ ol {
   }
 }
 
+/* FIFA — premium MacBook screenshot showcase */
+.project-card--fifa {
+  --fifa-accent-glow: rgba(120, 148, 200, 0.18);
+  --geno-silver: #f3f4f6;
+  --geno-frost: rgba(255, 255, 255, 0.06);
+  --geno-accent-glow: rgba(120, 148, 200, 0.18);
+  --fifa-block-gap: clamp(1.15rem, 2.2vw, 1.35rem);
+  border-color: rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.project-card--fifa.project-card--featured {
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  grid-template-rows: minmax(460px, auto);
+}
+
+.project-card--fifa:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 28px 72px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 64px var(--fifa-accent-glow);
+}
+
+.project-card--fifa .project-card__media {
+  border-right: none;
+  border-bottom: none;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.project-card--fifa .project-card__body {
+  gap: 0;
+  justify-content: flex-start;
+  padding: clamp(1.45rem, 3vw, 1.85rem);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: linear-gradient(165deg, rgba(16, 16, 20, 0.55) 0%, rgba(10, 10, 14, 0.35) 100%);
+}
+
+.project-card--fifa .project-card__tags {
+  gap: 0.35rem;
+  margin-bottom: var(--fifa-block-gap);
+}
+
+.project-card--fifa .chip {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+}
+
+.project-card--fifa .chip--muted {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.project-card--fifa .project-card__title {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  font-size: clamp(1.25rem, 2.1vw, 1.5rem);
+  letter-spacing: -0.035em;
+}
+
+.project-card--fifa .project-card__desc {
+  margin: 0 0 var(--fifa-block-gap);
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: rgba(245, 245, 247, 0.52);
+}
+
+.fifa-features {
+  margin: 0 0 var(--fifa-block-gap);
+  opacity: 0;
+}
+
+.fifa-features__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 247, 0.38);
+}
+
+.fifa-features__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.42rem 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fifa-features__item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: rgba(245, 245, 247, 0.68);
+  opacity: 0;
+}
+
+.fifa-features__icon {
+  flex-shrink: 0;
+  color: rgba(186, 204, 232, 0.72);
+  filter: drop-shadow(0 0 6px rgba(120, 148, 200, 0.2));
+}
+
+.project-card--fifa.reveal.is-visible .fifa-features {
+  animation: geno-features-fade 0.6s var(--ease-out) forwards;
+  animation-delay: 0.18s;
+}
+
+.project-card--fifa.reveal.is-visible .fifa-features__item {
+  animation: geno-features-fade 0.5s var(--ease-out) forwards;
+}
+
+.project-card--fifa.reveal.is-visible .fifa-features__item:nth-child(1) { animation-delay: 0.24s; }
+.project-card--fifa.reveal.is-visible .fifa-features__item:nth-child(2) { animation-delay: 0.3s; }
+.project-card--fifa.reveal.is-visible .fifa-features__item:nth-child(3) { animation-delay: 0.36s; }
+.project-card--fifa.reveal.is-visible .fifa-features__item:nth-child(4) { animation-delay: 0.42s; }
+.project-card--fifa.reveal.is-visible .fifa-features__item:nth-child(5) { animation-delay: 0.48s; }
+.project-card--fifa.reveal.is-visible .fifa-features__item:nth-child(6) { animation-delay: 0.54s; }
+.project-card--fifa.reveal.is-visible .fifa-features__item:nth-child(7) { animation-delay: 0.6s; }
+.project-card--fifa.reveal.is-visible .fifa-features__item:nth-child(8) { animation-delay: 0.66s; }
+
+.fifa-tech {
+  width: 100%;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.project-card--fifa .fifa-tech .tech-list {
+  gap: 0.4rem;
+  margin: 0;
+  width: 100%;
+}
+
+.project-card--fifa .fifa-tech .tech-list li {
+  padding: 0.28rem 0.48rem;
+  font-size: 0.72rem;
+  border-color: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.fifa-actions {
+  width: 100%;
+  margin-top: 22px;
+  padding-top: 0;
+}
+
+.fifa-actions__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+}
+
+/* FIFA action buttons — same monochrome luxury treatment as GENO */
+.project-card--fifa .btn--geno-github {
+  background: var(--geno-silver);
+  color: #121218;
+  border-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  filter: none;
+  backdrop-filter: none;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.12),
+    0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.project-card--fifa .btn--geno-github:hover {
+  transform: translateY(-2px);
+  background: #f5f5f7;
+  opacity: 1;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.project-card--fifa .btn--geno-demo {
+  background: var(--geno-frost);
+  color: rgba(245, 245, 247, 0.9);
+  border-color: rgba(255, 255, 255, 0.14);
+  opacity: 1;
+  filter: none;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card--fifa .btn--geno-demo:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  opacity: 1;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.28),
+    0 0 24px var(--geno-accent-glow);
+}
+
+.project-card__media--fifa {
+  background:
+    radial-gradient(ellipse 85% 65% at 50% 42%, var(--fifa-accent-glow), transparent 68%),
+    linear-gradient(175deg, #0c0c10 0%, #050507 100%);
+  padding: clamp(1.35rem, 3vw, 2rem) clamp(1.1rem, 2.5vw, 1.65rem);
+  overflow: hidden;
+}
+
+.project-card__media--fifa::before {
+  display: none;
+}
+
+.project-card__media--fifa::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  right: 0;
+  bottom: 8%;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 18%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.06) 82%,
+    transparent 100%
+  );
+  box-shadow:
+    1px 0 16px rgba(255, 255, 255, 0.03),
+    -8px 0 24px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.85;
+}
+
+.fifa-showcase {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding-block: 0.25rem;
+}
+
+.fifa-showcase__glow {
+  position: absolute;
+  inset: 4% 6% 22%;
+  background:
+    radial-gradient(ellipse 58% 44% at 50% 48%, var(--fifa-accent-glow), transparent 74%);
+  filter: blur(48px);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity var(--dur-mid) var(--ease-soft);
+}
+
+.project-card--fifa:hover .fifa-showcase__glow {
+  opacity: 0.65;
+}
+
+.project-card--fifa:hover .macbook {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.38));
+}
+
+.fifa-carousel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.fifa-carousel__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fifa-carousel__slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+  pointer-events: none;
+}
+
+.fifa-carousel__slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.project-card--fifa .fifa-carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Home Page only — custom showcase framing */
+.project-card--fifa .fifa-carousel__slide:first-child img {
+  object-fit: contain;
+  object-position: center top;
+  background: #000;
+}
+
+.fifa-carousel__label {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 247, 0.88);
+  background: rgba(8, 10, 16, 0.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity var(--dur-mid) var(--ease-soft),
+    transform var(--dur-mid) var(--ease-out);
+}
+
+.fifa-carousel__slide.is-active .fifa-carousel__label {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.fifa-carousel__controls {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: min(100%, 620px);
+  margin-inline: auto;
+  padding-top: 0.15rem;
+}
+
+.fifa-carousel__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(18, 18, 22, 0.75);
+  backdrop-filter: blur(12px);
+  color: rgba(245, 245, 247, 0.82);
+  transition:
+    background var(--dur-fast) var(--ease-soft),
+    border-color var(--dur-fast) var(--ease-soft),
+    transform var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-soft);
+}
+
+.fifa-carousel__arrow:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text);
+  transform: scale(1.04);
+}
+
+.fifa-carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(12, 12, 16, 0.72);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.fifa-carousel__dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.22);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-soft),
+    box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+.fifa-carousel__dot.is-active {
+  background: rgba(245, 245, 247, 0.92);
+  transform: scale(1.15);
+  box-shadow: 0 0 12px var(--fifa-accent-glow);
+}
+
+@media (max-width: 960px) {
+  .project-card--fifa.project-card--featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .project-card--fifa .project-card__media {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-bottom: none;
+  }
+
+  .project-card--fifa .project-card__body {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+
+  .project-card__media--fifa::after {
+    top: auto;
+    right: 8%;
+    left: 8%;
+    bottom: 0;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 18%,
+      rgba(255, 255, 255, 0.14) 50%,
+      rgba(255, 255, 255, 0.06) 82%,
+      transparent 100%
+    );
+    box-shadow:
+      0 1px 16px rgba(255, 255, 255, 0.03),
+      0 -6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .project-card__media--fifa {
+    min-height: clamp(300px, 52vw, 380px);
+    padding: 1.1rem 1rem 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .fifa-features__list {
+    grid-template-columns: 1fr;
+    gap: 0.38rem;
+  }
+
+  .project-card__media--fifa {
+    padding: 0.85rem 0.65rem 1rem;
+  }
+
+  .project-card--fifa .project-card__body {
+    padding: 1.15rem 1rem 1.25rem;
+  }
+
+  .fifa-carousel__controls {
+    width: 100%;
+    gap: 0.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card--fifa:hover {
+    transform: none;
+  }
+
+  .project-card--fifa:hover .macbook {
+    transform: none;
+  }
+
+  .fifa-carousel__slide {
+    transition-duration: 0.01ms;
+  }
+
+  .fifa-features,
+  .fifa-features__item {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+}
+
 .project-card__media--sdaia {
   background-color: #07070c;
   background-image:
     radial-gradient(circle at 15% 40%, rgba(180, 188, 210, 0.28), transparent 42%),
     radial-gradient(circle at 88% 22%, rgba(100, 108, 132, 0.35), transparent 48%),
     linear-gradient(145deg, #12121c, #060609);
-}
-
-.project-card__media--fifa {
-  background-color: #060609;
-  background-image:
-    linear-gradient(105deg, rgba(255, 255, 255, 0.07) 0%, transparent 45%),
-    repeating-linear-gradient(-38deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 14px),
-    linear-gradient(175deg, #101018, #050508);
 }
 
 .project-card__media--powerbi {
