@@ -598,30 +598,135 @@
               </div>
           </article>
 
-          <article class="project-card project-card--featured glass-card reveal" data-reveal>
-              <div class="project-card__media project-card__media--kau" role="img" aria-label="KAU Library Virtual Tour visual placeholder">
-                <span class="project-card__media-frame" aria-hidden="true"></span>
-              </div>
-              <div class="project-card__body">
-                <div class="project-card__tags">
-                  <span class="chip">Immersive</span>
-                  <span class="chip chip--muted">Interactive Experience · Digital Accessibility</span>
+          <article class="project-card project-card--featured project-card--kau glass-card reveal" data-reveal>
+            <div class="project-card__media project-card__media--kau" aria-label="KAU Library Virtual Tour showcase">
+              <div class="kau-showcase" data-kau-showcase>
+                <div class="kau-showcase__glow" aria-hidden="true"></div>
+                <div class="macbook" data-kau-macbook>
+                  <div class="macbook__lid">
+                    <div class="macbook__camera" aria-hidden="true"></div>
+                    <div class="macbook__screen">
+                      <div class="kau-carousel" data-kau-carousel aria-roledescription="carousel" aria-label="KAU Library Virtual Tour screenshots">
+                        <div class="kau-carousel__track" data-kau-track>
+                          <figure class="kau-carousel__slide is-active" data-kau-slide>
+                            <img src="assets/images/kau/kau-entrance.png" alt="KAU Library main entrance virtual tour" width="1400" height="875" loading="eager" decoding="async" />
+                            <figcaption class="kau-carousel__label">Entrance</figcaption>
+                          </figure>
+                          <figure class="kau-carousel__slide" data-kau-slide>
+                            <img src="assets/images/kau/kau-interface.png" alt="KAU Library virtual tour interface with floor navigation" width="1400" height="875" loading="lazy" decoding="async" />
+                            <figcaption class="kau-carousel__label">Tour UI</figcaption>
+                          </figure>
+                          <figure class="kau-carousel__slide" data-kau-slide>
+                            <img src="assets/images/kau/kau-interior.png" alt="KAU Library interior navigation with interactive hotspots" width="1400" height="875" loading="lazy" decoding="async" />
+                            <figcaption class="kau-carousel__label">Interior</figcaption>
+                          </figure>
+                          <figure class="kau-carousel__slide" data-kau-slide>
+                            <img src="assets/images/kau/kau-panorama.png" alt="KAU Library interactive panoramic reading room experience" width="1400" height="875" loading="lazy" decoding="async" />
+                            <figcaption class="kau-carousel__label">Panorama</figcaption>
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="macbook__base" aria-hidden="true">
+                    <div class="macbook__hinge"></div>
+                    <div class="macbook__deck"></div>
+                  </div>
                 </div>
-                <h3 class="project-card__title">KAU Library Virtual Tour</h3>
-                <p class="project-card__desc">
-                  Immersive virtual library tour built with panoramic environments to improve accessibility and navigation.
-                </p>
-                <ul class="tech-list" aria-label="Technologies">
+                <div class="kau-carousel__controls">
+                  <button type="button" class="kau-carousel__arrow kau-carousel__arrow--prev" data-kau-prev aria-label="Previous screenshot">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                  <div class="kau-carousel__dots" data-kau-dots role="tablist" aria-label="KAU Library Virtual Tour screenshots">
+                    <button type="button" class="kau-carousel__dot is-active" data-kau-dot="0" role="tab" aria-selected="true" aria-label="Main library entrance"></button>
+                    <button type="button" class="kau-carousel__dot" data-kau-dot="1" role="tab" aria-selected="false" aria-label="Virtual tour interface"></button>
+                    <button type="button" class="kau-carousel__dot" data-kau-dot="2" role="tab" aria-selected="false" aria-label="Interior navigation view"></button>
+                    <button type="button" class="kau-carousel__dot" data-kau-dot="3" role="tab" aria-selected="false" aria-label="Interactive panoramic experience"></button>
+                  </div>
+                  <button type="button" class="kau-carousel__arrow kau-carousel__arrow--next" data-kau-next aria-label="Next screenshot">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="chip">Immersive</span>
+                <span class="chip chip--muted">Virtual Reality · Interactive Navigation</span>
+              </div>
+              <h3 class="project-card__title">KAU Library Virtual Tour</h3>
+              <p class="project-card__desc">
+                An immersive virtual tour platform developed for King Abdulaziz University Library, allowing users to explore library facilities through interactive panoramic environments. The project enhances accessibility, navigation, and user experience by providing a realistic digital walkthrough experience.
+              </p>
+              <div class="kau-features" aria-label="Key features">
+                <p class="kau-features__label">Key Features</p>
+                <ul class="kau-features__list">
+                  <li class="kau-features__item">
+                    <svg class="kau-features__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Interactive Virtual Tour</span>
+                  </li>
+                  <li class="kau-features__item">
+                    <svg class="kau-features__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>360° Panoramic Navigation</span>
+                  </li>
+                  <li class="kau-features__item">
+                    <svg class="kau-features__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Library Exploration Experience</span>
+                  </li>
+                  <li class="kau-features__item">
+                    <svg class="kau-features__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Accessibility-Focused Design</span>
+                  </li>
+                  <li class="kau-features__item">
+                    <svg class="kau-features__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Responsive Interface</span>
+                  </li>
+                  <li class="kau-features__item">
+                    <svg class="kau-features__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Realistic Digital Walkthrough</span>
+                  </li>
+                  <li class="kau-features__item">
+                    <svg class="kau-features__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Interactive Hotspots</span>
+                  </li>
+                  <li class="kau-features__item">
+                    <svg class="kau-features__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Educational Technology Integration</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="kau-tech" aria-label="Technologies">
+                <ul class="tech-list">
                   <li>React</li>
                   <li>Marzipano</li>
+                  <li>JavaScript</li>
                   <li>UI/UX</li>
                   <li>Interactive Media</li>
                 </ul>
-                <div class="project-card__actions">
-                  <a class="btn btn--secondary btn--sm" href="https://github.com/joud-alharbi" target="_blank" rel="noopener noreferrer">GitHub</a>
-                  <a class="btn btn--primary btn--sm" href="#">Live Demo</a>
+              </div>
+              <div class="kau-actions" aria-label="Project links">
+                <div class="kau-actions__buttons">
+                  <a class="btn btn--geno btn--geno-github btn--sm" href="https://github.com/joud-alharbi" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a class="btn btn--geno btn--geno-demo btn--sm" href="https://virtualkaulibrarytour.netlify.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
                 </div>
               </div>
+            </div>
           </article>
 
           <article class="project-card project-card--featured glass-card reveal" data-reveal>
