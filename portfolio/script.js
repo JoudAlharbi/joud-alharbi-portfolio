@@ -296,33 +296,35 @@
   /* ---------------------------------------------------------------------------
      Almoheet showcase — dynamic screenshot gallery
      --------------------------------------------------------------------------- */
+  const ALMOHEET_ASSET_VERSION = "20260621";
+
   const ALMOHEET_SLIDES = [
     {
-      src: "assets/images/almoheet/almoheet-hero.png",
+      src: `assets/images/almoheet/almoheet-hero.png?v=${ALMOHEET_ASSET_VERSION}`,
       alt: "Almoheet Advertising & Marketing Agency homepage hero section",
       label: "Hero",
       ariaLabel: "Hero section",
     },
     {
-      src: "assets/images/almoheet/almoheet-services.png",
+      src: `assets/images/almoheet/almoheet-services.png?v=${ALMOHEET_ASSET_VERSION}`,
       alt: "Almoheet Advertising & Marketing Agency services page",
       label: "Services",
       ariaLabel: "Services section",
     },
     {
-      src: "assets/images/almoheet/almoheet-portfolio.png",
+      src: `assets/images/almoheet/almoheet-portfolio.png?v=${ALMOHEET_ASSET_VERSION}`,
       alt: "Almoheet Advertising & Marketing Agency portfolio gallery",
       label: "Portfolio",
       ariaLabel: "Portfolio section",
     },
     {
-      src: "assets/images/almoheet/almoheet-clients.png",
+      src: `assets/images/almoheet/almoheet-clients.png?v=${ALMOHEET_ASSET_VERSION}`,
       alt: "Almoheet Advertising & Marketing Agency clients and success stories",
       label: "Clients",
       ariaLabel: "Clients section",
     },
     {
-      src: "assets/images/almoheet/almoheet-contact.png",
+      src: `assets/images/almoheet/almoheet-contact.png?v=${ALMOHEET_ASSET_VERSION}`,
       alt: "Almoheet Advertising & Marketing Agency contact page",
       label: "Contact",
       ariaLabel: "Contact section",
@@ -349,6 +351,9 @@
       img.height = 900;
       img.loading = index === 0 ? "eager" : "lazy";
       img.decoding = "async";
+      if (index === 0) {
+        img.setAttribute("fetchpriority", "high");
+      }
 
       const caption = document.createElement("figcaption");
       caption.className = "geno-carousel__label";

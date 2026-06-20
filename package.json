@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "live-server portfolio --port=3000 --open=/index.html",
     "start": "serve portfolio -l 3000",
-    "build": "echo \"Static site — no build step required\""
+    "build": "node scripts/sync-almoheet-screenshots.mjs",
+    "sync:almoheet": "node scripts/sync-almoheet-screenshots.mjs",
+    "capture:almoheet": "node scripts/sync-almoheet-screenshots.mjs --capture"
   },
   "devDependencies": {
     "live-server": "^1.2.2",
