@@ -161,8 +161,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.65rem;
-  padding: 0.7rem 1.75rem;
+  height: 56px;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  box-sizing: border-box;
   font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 600;
@@ -207,8 +209,8 @@
 }
 
 .hero-luxe__btn--text {
-  padding-inline: 0.5rem;
-  min-height: auto;
+  padding: 14px 32px;
+  height: 56px;
   border: none;
   background: transparent;
   color: rgba(250, 248, 244, 0.38);
@@ -238,11 +240,12 @@
 
 .hero-luxe__metric-value {
   margin: 0;
-  font-family: var(--font-serif);
+  font-family: "Inter", sans-serif;
   font-size: clamp(1.75rem, 3vw, 2.35rem);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
   color: var(--gold-light);
 }
 
