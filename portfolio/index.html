@@ -334,19 +334,19 @@
     <!-- Projects -->
     <section class="section section--projects" id="projects" aria-labelledby="projects-heading">
       <div class="container">
-        <header class="section-head reveal" data-reveal>
-          <p class="eyebrow eyebrow--dim">Projects</p>
-          <div class="section-head__row">
-            <h2 id="projects-heading" class="section-title">Selected Work</h2>
-            <p class="section-intro">
-              AI, data, and engineering projects built around real problems.
-            </p>
-          </div>
+        <header class="work-head reveal" data-reveal>
+          <p class="work-head__eyebrow">Projects</p>
+          <h2 id="projects-heading" class="work-head__title">Work</h2>
+          <nav class="work-filters" aria-label="Project categories" data-project-filters>
+            <button type="button" class="work-filters__btn is-active" data-filter="all" aria-pressed="true">All Projects</button>
+            <button type="button" class="work-filters__btn" data-filter="ai-data" aria-pressed="false">AI &amp; Data Analysis</button>
+            <button type="button" class="work-filters__btn" data-filter="web-dev" aria-pressed="false">Web Development</button>
+          </nav>
         </header>
 
-        <div class="projects-stack">
+        <div class="projects-stack" data-projects-stack>
           <!-- Original GENO proportions = master layout for every project card -->
-          <article class="project-card project-card--featured project-card--geno glass-card reveal" data-reveal>
+          <article class="project-card project-card--featured project-card--geno glass-card reveal" data-reveal data-category="ai-data">
             <div class="project-card__media project-card__media--geno" aria-label="GENO product showcase">
               <div class="geno-showcase" data-geno-showcase>
                 <div class="geno-showcase__glow" aria-hidden="true"></div>
@@ -459,7 +459,7 @@
             </div>
           </article>
 
-          <article class="project-card project-card--featured glass-card reveal" data-reveal>
+          <article class="project-card project-card--featured glass-card reveal" data-reveal data-category="ai-data">
               <div class="project-card__media project-card__media--sdaia" role="img" aria-label="SDAIA Bootcamp visual placeholder">
                 <span class="project-card__media-frame" aria-hidden="true"></span>
               </div>
@@ -486,7 +486,7 @@
               </div>
             </article>
 
-          <article class="project-card project-card--featured project-card--fifa glass-card reveal" data-reveal>
+          <article class="project-card project-card--featured project-card--fifa glass-card reveal" data-reveal data-category="web-dev">
             <div class="project-card__media project-card__media--fifa" aria-label="FIFA World Cup 2034 Fan Portal showcase">
               <div class="fifa-showcase" data-fifa-showcase>
                 <div class="fifa-showcase__glow" aria-hidden="true"></div>
@@ -617,7 +617,7 @@
             </div>
           </article>
 
-          <article class="project-card project-card--featured project-card--geno glass-card reveal" data-reveal>
+          <article class="project-card project-card--featured project-card--geno glass-card reveal" data-reveal data-category="ai-data">
             <div class="project-card__media project-card__media--geno" aria-label="Sales Analytics Dashboard showcase">
               <div class="geno-showcase" data-geno-showcase>
                 <div class="geno-showcase__glow" aria-hidden="true"></div>
@@ -737,7 +737,7 @@
             </div>
           </article>
 
-          <article class="project-card project-card--featured project-card--kau glass-card reveal" data-reveal>
+          <article class="project-card project-card--featured project-card--kau glass-card reveal" data-reveal data-category="web-dev">
             <div class="project-card__media project-card__media--kau" aria-label="KAU Library Virtual Tour showcase">
               <div class="kau-showcase" data-kau-showcase>
                 <div class="kau-showcase__glow" aria-hidden="true"></div>
@@ -868,7 +868,7 @@
             </div>
           </article>
 
-          <article class="project-card project-card--featured glass-card reveal" data-reveal>
+          <article class="project-card project-card--featured glass-card reveal" data-reveal data-category="engineering">
               <div class="project-card__media project-card__media--golf" role="img" aria-label="GolfCar System visual placeholder">
                 <span class="project-card__media-frame" aria-hidden="true"></span>
               </div>

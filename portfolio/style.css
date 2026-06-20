@@ -1422,10 +1422,113 @@ ol {
   background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.015) 40%, transparent 100%);
 }
 
+/* ── Work section header & filters ───────────────────────────────────────── */
+.work-head {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.work-head__eyebrow {
+  margin: 0 0 0.85rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--platinum-muted);
+}
+
+.work-head__title {
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.25rem);
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+}
+
+.work-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+}
+
+.work-filters__btn {
+  padding: 0.55rem 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) var(--ease-soft),
+    border-color var(--dur-fast) var(--ease-soft),
+    background var(--dur-fast) var(--ease-soft),
+    box-shadow var(--dur-mid) var(--ease-soft),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.work-filters__btn:hover {
+  color: var(--platinum-light);
+  border-color: var(--border-strong);
+  background: var(--platinum-soft);
+}
+
+.work-filters__btn.is-active {
+  color: var(--text);
+  border-color: rgba(167, 184, 214, 0.45);
+  background: rgba(167, 184, 214, 0.1);
+  box-shadow: 0 0 24px var(--platinum-glow);
+}
+
+.work-filters__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .projects-stack {
   display: flex;
   flex-direction: column;
   gap: clamp(1.35rem, 3vw, 2rem);
+}
+
+.project-card {
+  transition:
+    opacity var(--dur-mid) var(--ease-out),
+    transform var(--dur-mid) var(--ease-out),
+    max-height var(--dur-slow) var(--ease-out),
+    margin var(--dur-slow) var(--ease-out);
+}
+
+.project-card.is-filter-hidden {
+  display: none;
+}
+
+.project-card.is-filter-leaving {
+  opacity: 0;
+  transform: translateY(1.25rem) scale(0.985);
+  pointer-events: none;
+}
+
+.project-card.is-filter-entering {
+  opacity: 0;
+  transform: translateY(1.25rem) scale(0.985);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    transition: none;
+  }
+
+  .project-card.is-filter-leaving,
+  .project-card.is-filter-entering {
+    transform: none;
+  }
 }
 
 /* 2-col SaaS showcase: large visual left (~52.5%), compact copy right (~47.5%) */

@@ -641,5 +641,76 @@
     startAutoplay();
   })();
 
+  /* ---------------------------------------------------------------------------
+     Work section — project category filters
+     --------------------------------------------------------------------------- */
+  (function initProjectFilters() {
+    const filterNav = document.querySelector("[data-project-filters]");
+    const stack = document.querySelector("[data-projects-stack]");
+    if (!filterNav || !stack) return;
+
+    const buttons = filterNav.querySelectorAll(".work-filters__btn");
+    const cards = stack.querySelectorAll(".project-card[data-category]");
+    const FILTER_MS = prefersReducedMotion ? 0 : 420;
+
+    function cardMatches(card, filter) {
+      if (filter === "all") return true;
+      return card.getAttribute("data-category") === filter;
+    }
+
+    function setActiveButton(activeBtn) {
+      buttons.forEach((btn) => {
+        const isActive = btn === activeBtn;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    }
+
+    function showCard(card) {
+      card.classList.remove("is-filter-hidden", "is-filter-leaving");
+      card.classList.add("is-filter-entering");
+      card.removeAttribute("hidden");
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          card.classList.remove("is-filter-entering");
+        });
+      });
+    }
+
+    function hideCard(card) {
+      if (card.classList.contains("is-filter-hidden")) return;
+
+      card.classList.add("is-filter-leaving");
+      card.classList.remove("is-filter-entering");
+
+      window.setTimeout(() => {
+        card.classList.add("is-filter-hidden");
+        card.classList.remove("is-filter-leaving");
+        card.setAttribute("hidden", "");
+      }, FILTER_MS);
+    }
+
+    function applyFilter(filter, activeBtn) {
+      setActiveButton(activeBtn);
+
+      cards.forEach((card) => {
+        if (cardMatches(card, filter)) {
+          showCard(card);
+        } else {
+          hideCard(card);
+        }
+      });
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+        if (!filter || btn.classList.contains("is-active")) return;
+        applyFilter(filter, btn);
+      });
+    });
+  })();
+
 
 })();
