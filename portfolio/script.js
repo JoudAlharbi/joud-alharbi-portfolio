@@ -13,8 +13,31 @@
   const mobileLinks = mobilePanel ? mobilePanel.querySelectorAll("a") : [];
   const yearEl = document.getElementById("year");
   const contactForm = document.getElementById("contact-form");
+  const rootEl = document.body;
+  const RESUME_URL = rootEl?.getAttribute("data-resume-url") || "";
 
   const HEADER_OFFSET = 88;
+
+  /* ---------------------------------------------------------------------------
+     Global resume links (single source of truth)
+     --------------------------------------------------------------------------- */
+  function syncResumeLinks() {
+    if (!RESUME_URL) return;
+    const resumeLinks = document.querySelectorAll("[data-resume-link]");
+
+    resumeLinks.forEach((link) => {
+      const mode = link.getAttribute("data-resume-link");
+      link.setAttribute("href", RESUME_URL);
+
+      if (mode === "download") {
+        link.setAttribute("download", "");
+      } else {
+        link.removeAttribute("download");
+      }
+    });
+  }
+
+  syncResumeLinks();
 
   /** Current scroll listener ref for cleanup */
   let scrollTicking = false;

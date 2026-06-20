@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="hero-luxe.css" />
   <link rel="preload" href="assets/images/brand-logo.png" as="image" type="image/png" />
 </head>
-<body>
+<body data-resume-url="assets/cv/JOOD_ALHARBI_CV.pdf">
   <!-- Ambient mesh / glow layers -->
   <div class="ambient" aria-hidden="true">
     <div class="ambient__mesh"></div>
@@ -37,13 +37,12 @@
           <li><a class="nav__link" href="#education">Education</a></li>
           <li><a class="nav__link" href="#projects">Projects</a></li>
           <li><a class="nav__link" href="#skills">Skills</a></li>
-          <li><a class="nav__link" href="#cv">CV</a></li>
           <li><a class="nav__link" href="#contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header__actions">
-        <a class="btn btn--ghost btn--sm hide-mobile btn--cv-nav" href="assets/cv/Joud_Alharbi_CV.pdf" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn--ghost btn--sm hide-mobile btn--cv-nav" href="#" data-resume-link="view" target="_blank" rel="noopener noreferrer">
           CV
         </a>
         <a class="btn btn--primary btn--sm btn--gold" href="#contact">Let's Talk</a>
@@ -62,7 +61,6 @@
           <li><a href="#education">Education</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#cv">CV</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="mobile-panel__social">
@@ -76,7 +74,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4V6zm0 0l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
-        <a class="btn btn--primary btn--block btn--cv-mobile" href="assets/cv/Joud_Alharbi_CV.pdf" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn--primary btn--block btn--cv-mobile" href="#" data-resume-link="view" target="_blank" rel="noopener noreferrer">
           View CV
         </a>
       </nav>
@@ -115,7 +113,7 @@
 
             <div class="hero-luxe__actions reveal" data-reveal>
               <a class="hero-luxe__btn hero-luxe__btn--gold" href="#projects">View Projects</a>
-              <a class="hero-luxe__btn hero-luxe__btn--outline" href="assets/cv/Joud_Alharbi_CV.pdf" target="_blank" rel="noopener noreferrer" download="Joud_Alharbi_CV.pdf">Download CV</a>
+              <a class="hero-luxe__btn hero-luxe__btn--outline" href="#" data-resume-link="download" target="_blank" rel="noopener noreferrer">Download CV</a>
               <a class="hero-luxe__btn hero-luxe__btn--text" href="#contact">Contact Me</a>
             </div>
 
@@ -897,55 +895,6 @@
       </div>
     </section>
 
-    <!-- Résumé / CV -->
-    <section class="section section--cv" id="cv" aria-labelledby="cv-heading">
-      <div class="container">
-        <header class="section-head reveal" data-reveal>
-          <p class="eyebrow eyebrow--dim">Résumé</p>
-          <div class="section-head__row">
-            <h2 id="cv-heading" class="section-title">Curriculum vitae</h2>
-            <p class="section-intro">
-              Education, experience, and skills — available to download or preview.
-            </p>
-          </div>
-        </header>
-
-        <div class="cv-showcase reveal" data-reveal>
-          <a class="cv-preview glass-card" href="assets/cv/Joud_Alharbi_CV.pdf" target="_blank" rel="noopener noreferrer" download="Joud_Alharbi_CV.pdf" aria-label="Open or download CV PDF">
-            <div class="cv-preview__chrome" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="cv-preview__doc" aria-hidden="true">
-              <span class="cv-preview__hero"></span>
-              <span class="cv-preview__line"></span>
-              <span class="cv-preview__line cv-preview__line--short"></span>
-              <span class="cv-preview__line"></span>
-              <div class="cv-preview__cols">
-                <span></span><span></span>
-              </div>
-            </div>
-            <p class="cv-preview__label"><span class="cv-preview__dot"></span> Joud_Alharbi_CV.pdf</p>
-          </a>
-
-          <div class="cv-showcase__aside">
-            <p class="lead cv-showcase__lead">
-              Opens in a new tab or download for offline use.
-            </p>
-            <div class="cv-showcase__actions">
-              <a class="btn btn--primary btn-cv" href="assets/cv/Joud_Alharbi_CV.pdf" target="_blank" rel="noopener noreferrer" download="Joud_Alharbi_CV.pdf">
-                <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l4-4m-4 4L8 11M5 21h14" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Download CV
-              </a>
-              <a class="btn btn--glass btn-cv-outline" href="assets/cv/Joud_Alharbi_CV.pdf" target="_blank" rel="noopener noreferrer">
-                Open in new tab
-                <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Education -->
     <section class="section section--education" id="education" aria-labelledby="education-heading">
       <div class="container">
@@ -1370,6 +1319,11 @@
             </a>
           </div>
 
+          <div class="contact-resume-actions" aria-label="Resume actions">
+            <a class="btn btn--ghost btn--sm" href="#" data-resume-link="view" target="_blank" rel="noopener noreferrer">View Resume</a>
+            <a class="btn btn--primary btn--sm" href="#" data-resume-link="download" target="_blank" rel="noopener noreferrer">Download Resume</a>
+          </div>
+
           <!-- ── CTA card ── -->
           <div class="contact-cta-card glass-card">
             <h3 class="contact-cta-card__heading">Ready to collaborate?</h3>
@@ -1398,7 +1352,6 @@
       <nav class="footer__nav" aria-label="Footer">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
       </nav>
 
