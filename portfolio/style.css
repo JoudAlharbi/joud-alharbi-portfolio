@@ -1844,20 +1844,22 @@ ol {
   opacity: 0.85;
 }
 
-/* GENO action buttons — monochrome luxury */
+/* GENO action buttons — premium project CTAs */
 .btn--geno {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.375rem;
-  padding: 0.6rem 1.15rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.78rem;
+  min-height: 46px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1;
   border: 1px solid transparent;
   box-sizing: border-box;
+  text-decoration: none;
+  white-space: nowrap;
   transition:
     transform var(--dur-fast) var(--ease-out),
     box-shadow var(--dur-mid) var(--ease-soft),
@@ -1867,40 +1869,43 @@ ol {
 }
 
 .btn--geno-github {
-  background: var(--geno-silver);
-  color: #121218;
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #0a0a0a;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.14);
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.12),
-    0 6px 18px rgba(0, 0, 0, 0.18);
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.28);
 }
 
 .btn--geno-github:hover {
   transform: translateY(-2px);
-  background: #f5f5f7;
+  background: rgba(18, 18, 22, 0.92);
+  border-color: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    0 10px 28px rgba(0, 0, 0, 0.22);
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.34),
+    0 0 20px rgba(167, 184, 214, 0.12);
 }
 
 .btn--geno-demo {
-  background: var(--geno-frost);
-  color: rgba(245, 245, 247, 0.9);
-  border-color: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(12px);
+  background: #aebbd3;
+  color: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.35);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 4px 16px rgba(0, 0, 0, 0.2);
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 4px 14px rgba(0, 0, 0, 0.14);
 }
 
 .btn--geno-demo:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: #bcc9dd;
+  border-color: rgba(255, 255, 255, 0.45);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 8px 24px rgba(0, 0, 0, 0.28),
-    0 0 24px var(--geno-accent-glow);
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 8px 22px rgba(0, 0, 0, 0.18),
+    0 0 20px rgba(174, 187, 211, 0.35);
 }
 
 .geno-showcase {
@@ -2422,50 +2427,7 @@ ol {
   gap: 0.65rem;
 }
 
-/* FIFA action buttons — same monochrome luxury treatment as GENO */
-.project-card--fifa .btn--geno-github {
-  background: var(--geno-silver);
-  color: #121218;
-  border-color: rgba(255, 255, 255, 0.2);
-  opacity: 1;
-  filter: none;
-  backdrop-filter: none;
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.12),
-    0 6px 18px rgba(0, 0, 0, 0.18);
-}
-
-.project-card--fifa .btn--geno-github:hover {
-  transform: translateY(-2px);
-  background: #f5f5f7;
-  opacity: 1;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    0 10px 28px rgba(0, 0, 0, 0.22);
-}
-
-.project-card--fifa .btn--geno-demo {
-  background: var(--geno-frost);
-  color: rgba(245, 245, 247, 0.9);
-  border-color: rgba(255, 255, 255, 0.14);
-  opacity: 1;
-  filter: none;
-  backdrop-filter: blur(12px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.project-card--fifa .btn--geno-demo:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.22);
-  opacity: 1;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 8px 24px rgba(0, 0, 0, 0.28),
-    0 0 24px var(--geno-accent-glow);
-}
+/* FIFA action buttons — inherit unified project CTA styles */
 
 .project-card__media--fifa {
   background:
@@ -2921,50 +2883,7 @@ ol {
   gap: 0.65rem;
 }
 
-/* KAU action buttons — same monochrome luxury treatment as GENO */
-.project-card--kau .btn--geno-github {
-  background: var(--geno-silver);
-  color: #121218;
-  border-color: rgba(255, 255, 255, 0.2);
-  opacity: 1;
-  filter: none;
-  backdrop-filter: none;
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.12),
-    0 6px 18px rgba(0, 0, 0, 0.18);
-}
-
-.project-card--kau .btn--geno-github:hover {
-  transform: translateY(-2px);
-  background: #f5f5f7;
-  opacity: 1;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    0 10px 28px rgba(0, 0, 0, 0.22);
-}
-
-.project-card--kau .btn--geno-demo {
-  background: var(--geno-frost);
-  color: rgba(245, 245, 247, 0.9);
-  border-color: rgba(255, 255, 255, 0.14);
-  opacity: 1;
-  filter: none;
-  backdrop-filter: blur(12px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.project-card--kau .btn--geno-demo:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.22);
-  opacity: 1;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 8px 24px rgba(0, 0, 0, 0.28),
-    0 0 24px var(--geno-accent-glow);
-}
+/* KAU action buttons — inherit unified project CTA styles */
 
 .project-card__media--kau {
   background:
@@ -3362,9 +3281,72 @@ ol {
 .project-card__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.65rem;
   margin-top: auto;
   padding-top: 0.15rem;
+}
+
+.section--projects .project-card__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-soft),
+    background var(--dur-fast) var(--ease-soft),
+    border-color var(--dur-fast) var(--ease-soft),
+    color var(--dur-fast) var(--ease-soft);
+}
+
+.section--projects .project-card__actions .btn--secondary {
+  background: #0a0a0a;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.28);
+}
+
+.section--projects .project-card__actions .btn--secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(18, 18, 22, 0.92);
+  border-color: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.34),
+    0 0 20px rgba(167, 184, 214, 0.12);
+}
+
+.section--projects .project-card__actions .btn--primary {
+  background: #aebbd3;
+  color: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 4px 14px rgba(0, 0, 0, 0.14);
+}
+
+.section--projects .project-card__actions .btn--primary:hover {
+  transform: translateY(-2px);
+  background: #bcc9dd;
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 8px 22px rgba(0, 0, 0, 0.18),
+    0 0 20px rgba(174, 187, 211, 0.35);
 }
 
 /* -----------------------------------------------------------------------------
