@@ -448,23 +448,27 @@
     --hero-shell-inset: clamp(13.75rem, 12vw, 16.25rem);
     margin-inline-start: var(--hero-shell-inset);
     margin-inline-end: clamp(2rem, 4vw, 3rem);
-    width: min(calc(1744px - var(--hero-shell-inset)), calc(100vw - var(--hero-shell-inset) - clamp(2rem, 4vw, 3rem)));
+    width: auto;
     max-width: none;
   }
 
   .hero-luxe__layout {
-    grid-template-columns: minmax(0, max-content) minmax(0, 1fr) 360px;
-    gap: clamp(5rem, 5.5vw, 7.5rem);
-    align-items: center;
+    display: block;
   }
 
   .hero-luxe__intro {
-    grid-column: 1;
     max-width: min(750px, 100%);
   }
 
   .hero-luxe__feature {
-    grid-column: 3;
+    position: absolute;
+    left: calc(50vw + 13.5625rem - var(--hero-shell-inset));
+    top: 0;
+    bottom: 0;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    z-index: 1;
     justify-content: flex-start;
   }
 }
