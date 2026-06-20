@@ -2053,6 +2053,11 @@ ol {
   object-fit: cover;
   object-position: top center;
   display: block;
+  transition: transform 0.65s var(--ease-out);
+}
+
+.geno-showcase:hover .geno-carousel__slide.is-active img {
+  transform: scale(1.025);
 }
 
 .geno-carousel__label {
@@ -2255,6 +2260,14 @@ ol {
 
   .geno-carousel__slide {
     transition-duration: 0.01ms;
+  }
+
+  .geno-carousel__slide img {
+    transition: none;
+  }
+
+  .geno-showcase:hover .geno-carousel__slide.is-active img {
+    transform: none;
   }
 
   .geno-features,

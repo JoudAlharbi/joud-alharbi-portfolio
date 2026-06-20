@@ -293,6 +293,81 @@
   /* ---------------------------------------------------------------------------
      GENO showcase — MacBook screenshot carousel
      --------------------------------------------------------------------------- */
+  /* ---------------------------------------------------------------------------
+     Almoheet showcase — dynamic screenshot gallery
+     --------------------------------------------------------------------------- */
+  const ALMOHEET_SLIDES = [
+    {
+      src: "assets/images/almoheet/almoheet-hero.png",
+      alt: "Almoheet Advertising & Marketing Agency homepage hero section",
+      label: "Hero",
+      ariaLabel: "Hero section",
+    },
+    {
+      src: "assets/images/almoheet/almoheet-services.png",
+      alt: "Almoheet Advertising & Marketing Agency services page",
+      label: "Services",
+      ariaLabel: "Services section",
+    },
+    {
+      src: "assets/images/almoheet/almoheet-portfolio.png",
+      alt: "Almoheet Advertising & Marketing Agency portfolio gallery",
+      label: "Portfolio",
+      ariaLabel: "Portfolio section",
+    },
+    {
+      src: "assets/images/almoheet/almoheet-clients.png",
+      alt: "Almoheet Advertising & Marketing Agency clients and success stories",
+      label: "Clients",
+      ariaLabel: "Clients section",
+    },
+    {
+      src: "assets/images/almoheet/almoheet-contact.png",
+      alt: "Almoheet Advertising & Marketing Agency contact page",
+      label: "Contact",
+      ariaLabel: "Contact section",
+    },
+  ];
+
+  (function initAlmoheetSlides() {
+    const showcase = document.querySelector("[data-almoheet-showcase]");
+    if (!showcase) return;
+
+    const track = showcase.querySelector("[data-almoheet-track]");
+    const dotsContainer = showcase.querySelector("[data-almoheet-dots]");
+    if (!track || !dotsContainer) return;
+
+    ALMOHEET_SLIDES.forEach((slide, index) => {
+      const figure = document.createElement("figure");
+      figure.className = "geno-carousel__slide" + (index === 0 ? " is-active" : "");
+      figure.setAttribute("data-geno-slide", "");
+
+      const img = document.createElement("img");
+      img.src = slide.src;
+      img.alt = slide.alt;
+      img.width = 1400;
+      img.height = 900;
+      img.loading = index === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+
+      const caption = document.createElement("figcaption");
+      caption.className = "geno-carousel__label";
+      caption.textContent = slide.label;
+
+      figure.append(img, caption);
+      track.appendChild(figure);
+
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "geno-carousel__dot" + (index === 0 ? " is-active" : "");
+      dot.setAttribute("data-geno-dot", String(index));
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-selected", index === 0 ? "true" : "false");
+      dot.setAttribute("aria-label", slide.ariaLabel);
+      dotsContainer.appendChild(dot);
+    });
+  })();
+
   (function initGenoShowcase() {
     document.querySelectorAll("[data-geno-showcase]").forEach((showcase) => {
       const slides = showcase.querySelectorAll("[data-geno-slide]");
