@@ -9,38 +9,46 @@ const sourceDir = path.resolve(rootDir, "public/portfolio/images");
 const assetDir = path.resolve(rootDir, "portfolio/assets/images/almoheet");
 
 const SLIDE_FILES = [
-  "almoheet-hero.png",
-  "almoheet-services.png",
   "almoheet-portfolio.png",
+  "almoheet-featured.png",
+  "almoheet-project-detail.png",
+  "almoheet-services.png",
   "almoheet-clients.png",
   "almoheet-contact.png",
 ];
 
+const STALE_FILES = ["almoheet-hero.png"];
+
 const CAPTURES = [
   {
-    file: "almoheet-hero.png",
-    url: "https://almoheet-company.vercel.app/ar",
-    scrollY: 0,
+    file: "almoheet-portfolio.png",
+    url: "https://almoheet-company.vercel.app/ar/portfolio",
+    scrollTo: null,
+  },
+  {
+    file: "almoheet-featured.png",
+    url: "https://almoheet-company.vercel.app/ar/portfolio",
+    scrollTo: "مشاريع مختارة",
+  },
+  {
+    file: "almoheet-project-detail.png",
+    url: "https://almoheet-company.vercel.app/ar/portfolio/secret-brand-gift-box",
+    scrollTo: null,
   },
   {
     file: "almoheet-services.png",
     url: "https://almoheet-company.vercel.app/ar/services",
-    scrollY: 0,
-  },
-  {
-    file: "almoheet-portfolio.png",
-    url: "https://almoheet-company.vercel.app/ar/portfolio",
-    scrollY: 0,
+    scrollTo: null,
   },
   {
     file: "almoheet-clients.png",
     url: "https://almoheet-company.vercel.app/ar/clients",
-    scrollY: 0,
+    scrollTo: null,
   },
   {
     file: "almoheet-contact.png",
     url: "https://almoheet-company.vercel.app/ar/contact",
-    scrollY: 0,
+    scrollTo: null,
   },
 ];
 
@@ -87,10 +95,35 @@ async function clearStaleImages(dir) {
   }
 }
 
+async function scrollToHeading(page, headingText) {
+  const scrolled = await page.evaluate((text) => {
+    const headings = [...document.querySelectorAll("h1,h2,h3")];
+    const target = headings.find((node) => node.textContent.includes(text));
+    if (!target) return false;
+    const top = window.scrollY + target.getBoundingClientRect().top - 72;
+    window.scrollTo({ top: Math.max(0, top), behavior: "instant" });
+    return true;
+  }, headingText);
+
+  if (!scrolled) {
+    console.warn(`Heading not found: ${headingText}`);
+  }
+}
+
 async function captureFreshScreenshots() {
   await mkdir(sourceDir, { recursive: true });
   await clearStaleImages(sourceDir);
   await clearStaleImages(assetDir);
+
+  for (const stale of STALE_FILES) {
+    for (const dir of [sourceDir, assetDir]) {
+      const stalePath = path.join(dir, stale);
+      if (await pathExists(stalePath)) {
+        await rm(stalePath);
+        console.log(`Removed deprecated image: ${stale}`);
+      }
+    }
+  }
 
   const browser = await chromium.launch({
     channel: "msedge",
@@ -108,8 +141,14 @@ async function captureFreshScreenshots() {
     console.log(`Capturing ${shot.file}…`);
     await page.goto(shot.url, { waitUntil: "networkidle", timeout: 90000 });
     await page.addStyleTag({ content: HIDE_FLOATING_UI });
-    await page.evaluate((scrollY) => window.scrollTo(0, scrollY), shot.scrollY);
-    await page.waitForTimeout(2500);
+
+    if (shot.scrollTo) {
+      await scrollToHeading(page, shot.scrollTo);
+    } else {
+      await page.evaluate(() => window.scrollTo(0, 0));
+    }
+
+    await page.waitForTimeout(3000);
 
     const outputPath = path.join(sourceDir, shot.file);
     await page.screenshot({
@@ -148,9 +187,13 @@ async function main() {
     return;
   }
 
-  const sourceReady = (await pathExists(sourceDir))
-    ? (await readdir(sourceDir)).some((name) => SLIDE_FILES.includes(name))
-    : false;
+  let sourceReady = false;
+  if (await pathExists(sourceDir)) {
+    const checks = await Promise.all(
+      SLIDE_FILES.map((name) => pathExists(path.join(sourceDir, name)))
+    );
+    sourceReady = checks.every(Boolean);
+  }
 
   if (sourceReady) {
     console.log("Using screenshots from public/portfolio/images");
@@ -159,7 +202,7 @@ async function main() {
     return;
   }
 
-  console.log("No source screenshots found — using committed assets in portfolio/assets/images/almoheet");
+  console.log("No complete source set found — using committed assets in portfolio/assets/images/almoheet");
 }
 
 await main();

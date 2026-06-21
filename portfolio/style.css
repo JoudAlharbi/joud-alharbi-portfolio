@@ -2060,6 +2060,63 @@ ol {
   transform: scale(1.025);
 }
 
+/* Almoheet — full-frame screenshots inside MacBook mockup */
+[data-almoheet-showcase] .geno-carousel__slide img {
+  object-fit: contain;
+  object-position: center center;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+}
+
+[data-almoheet-showcase]:hover .geno-carousel__slide.is-active img {
+  transform: scale(1.012);
+}
+
+[data-almoheet-showcase] .geno-carousel__controls {
+  gap: 1.15rem;
+  padding-top: 0.35rem;
+}
+
+[data-almoheet-showcase] .geno-carousel__arrow {
+  width: 38px;
+  height: 38px;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(10, 12, 18, 0.9);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  color: rgba(245, 245, 247, 0.94);
+}
+
+[data-almoheet-showcase] .geno-carousel__arrow:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+[data-almoheet-showcase] .geno-carousel__dots {
+  gap: 0.45rem;
+  padding: 0.45rem 0.75rem;
+  background: rgba(8, 10, 14, 0.88);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+[data-almoheet-showcase] .geno-carousel__dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+[data-almoheet-showcase] .geno-carousel__dot.is-active {
+  width: 22px;
+  border-radius: var(--radius-pill);
+  background: rgba(245, 245, 247, 0.95);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+}
+
+[data-almoheet-showcase] .geno-carousel__slide {
+  transition:
+    opacity 0.85s var(--ease-out),
+    transform 0.85s var(--ease-out);
+}
+
 .geno-carousel__label {
   position: absolute;
   top: 0.55rem;
@@ -2235,6 +2292,20 @@ ol {
     height: 32px;
   }
 
+  [data-almoheet-showcase] .geno-carousel__arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  [data-almoheet-showcase] .geno-carousel__dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  [data-almoheet-showcase] .geno-carousel__dot.is-active {
+    width: 18px;
+  }
+
   .geno-carousel__dot {
     width: 6px;
     height: 6px;
@@ -2267,6 +2338,10 @@ ol {
   }
 
   .geno-showcase:hover .geno-carousel__slide.is-active img {
+    transform: none;
+  }
+
+  [data-almoheet-showcase]:hover .geno-carousel__slide.is-active img {
     transform: none;
   }
 

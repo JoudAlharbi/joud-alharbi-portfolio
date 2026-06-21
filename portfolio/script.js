@@ -296,26 +296,32 @@
   /* ---------------------------------------------------------------------------
      Almoheet showcase — dynamic screenshot gallery
      --------------------------------------------------------------------------- */
-  const ALMOHEET_ASSET_VERSION = "20260621";
+  const ALMOHEET_ASSET_VERSION = "20260622";
 
   const ALMOHEET_SLIDES = [
     {
-      src: `assets/images/almoheet/almoheet-hero.png?v=${ALMOHEET_ASSET_VERSION}`,
-      alt: "Almoheet Advertising & Marketing Agency homepage hero section",
-      label: "Hero",
-      ariaLabel: "Hero section",
+      src: `assets/images/almoheet/almoheet-portfolio.png?v=${ALMOHEET_ASSET_VERSION}`,
+      alt: "Almoheet Advertising & Marketing Agency updated Our Work page with new project cards",
+      label: "Our Work",
+      ariaLabel: "Updated Our Work page",
+    },
+    {
+      src: `assets/images/almoheet/almoheet-featured.png?v=${ALMOHEET_ASSET_VERSION}`,
+      alt: "Almoheet Advertising & Marketing Agency featured projects section",
+      label: "Featured",
+      ariaLabel: "Featured projects section",
+    },
+    {
+      src: `assets/images/almoheet/almoheet-project-detail.png?v=${ALMOHEET_ASSET_VERSION}`,
+      alt: "Almoheet Advertising & Marketing Agency project details and photo gallery view",
+      label: "Gallery",
+      ariaLabel: "Project details and gallery view",
     },
     {
       src: `assets/images/almoheet/almoheet-services.png?v=${ALMOHEET_ASSET_VERSION}`,
       alt: "Almoheet Advertising & Marketing Agency services page",
       label: "Services",
       ariaLabel: "Services section",
-    },
-    {
-      src: `assets/images/almoheet/almoheet-portfolio.png?v=${ALMOHEET_ASSET_VERSION}`,
-      alt: "Almoheet Advertising & Marketing Agency portfolio gallery",
-      label: "Portfolio",
-      ariaLabel: "Portfolio section",
     },
     {
       src: `assets/images/almoheet/almoheet-clients.png?v=${ALMOHEET_ASSET_VERSION}`,
