@@ -296,26 +296,26 @@
   /* ---------------------------------------------------------------------------
      Almoheet showcase — dynamic screenshot gallery
      --------------------------------------------------------------------------- */
-  const ALMOHEET_ASSET_VERSION = "20260622";
+  const ALMOHEET_ASSET_VERSION = "20260623";
 
   const ALMOHEET_SLIDES = [
+    {
+      src: `assets/images/almoheet/almoheet-home.png?v=${ALMOHEET_ASSET_VERSION}`,
+      alt: "Almoheet Advertising & Marketing Agency homepage hero section and branding",
+      label: "Home",
+      ariaLabel: "Home page hero section",
+    },
     {
       src: `assets/images/almoheet/almoheet-portfolio.png?v=${ALMOHEET_ASSET_VERSION}`,
       alt: "Almoheet Advertising & Marketing Agency updated Our Work page with new project cards",
       label: "Our Work",
-      ariaLabel: "Updated Our Work page",
+      ariaLabel: "Our Work portfolio page",
     },
     {
       src: `assets/images/almoheet/almoheet-featured.png?v=${ALMOHEET_ASSET_VERSION}`,
       alt: "Almoheet Advertising & Marketing Agency featured projects section",
       label: "Featured",
       ariaLabel: "Featured projects section",
-    },
-    {
-      src: `assets/images/almoheet/almoheet-project-detail.png?v=${ALMOHEET_ASSET_VERSION}`,
-      alt: "Almoheet Advertising & Marketing Agency project details and photo gallery view",
-      label: "Gallery",
-      ariaLabel: "Project details and gallery view",
     },
     {
       src: `assets/images/almoheet/almoheet-services.png?v=${ALMOHEET_ASSET_VERSION}`,

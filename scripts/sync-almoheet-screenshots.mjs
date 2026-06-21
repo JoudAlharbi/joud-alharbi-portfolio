@@ -9,17 +9,22 @@ const sourceDir = path.resolve(rootDir, "public/portfolio/images");
 const assetDir = path.resolve(rootDir, "portfolio/assets/images/almoheet");
 
 const SLIDE_FILES = [
+  "almoheet-home.png",
   "almoheet-portfolio.png",
   "almoheet-featured.png",
-  "almoheet-project-detail.png",
   "almoheet-services.png",
   "almoheet-clients.png",
   "almoheet-contact.png",
 ];
 
-const STALE_FILES = ["almoheet-hero.png"];
+const STALE_FILES = ["almoheet-hero.png", "almoheet-project-detail.png"];
 
 const CAPTURES = [
+  {
+    file: "almoheet-home.png",
+    url: "https://almoheet-company.vercel.app/ar",
+    scrollTo: null,
+  },
   {
     file: "almoheet-portfolio.png",
     url: "https://almoheet-company.vercel.app/ar/portfolio",
@@ -29,11 +34,6 @@ const CAPTURES = [
     file: "almoheet-featured.png",
     url: "https://almoheet-company.vercel.app/ar/portfolio",
     scrollTo: "مشاريع مختارة",
-  },
-  {
-    file: "almoheet-project-detail.png",
-    url: "https://almoheet-company.vercel.app/ar/portfolio/secret-brand-gift-box",
-    scrollTo: null,
   },
   {
     file: "almoheet-services.png",
